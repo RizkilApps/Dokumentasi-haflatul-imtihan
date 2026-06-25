@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri Haflatul Imtihan - Rudlatul Hasan Hasan</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght=0,300;0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- CSS Kustom Neo Brutalism -->
+    <style>
+        /* === RESET & VARIABEL UTAMA (Dibatasi hanya Merah & Kuning) === */
+        :root {
+            --bg-color: #FFFDF5; /* Kuning-putih hangat */
+            --primary-color: #FFD93D; /* Kuning Brutalist */
+            --yellow-secondary: #FFF066; /* Kuning Terang */
+            --red-color: #FF4A4A; /* Merah Brutalist */
+            --red-dark: #D62828; /* Merah Tua */
+            --text-color: #111111;
+            --border-color: #000000;
+            --card-shadow: 6px 6px 0px #000000;
+            --btn-shadow: 4px 4px 0px #000000;
+            --transition-speed: 0.2s;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            padding-bottom: 50px;
+        }
+
+        /* === GAYA UTAMA NEO BRUTALISM === */
+        .neo-border {
+            border: 4px solid var(--border-color) !important;
+            border-radius: 16px !important;
+        }
+
+        .neo-shadow {
+            box-shadow: var(--card-shadow) !important;
+        }
+
+        .neo-btn-shadow {
+            box-shadow: var(--btn-shadow) !important;
+        }
+
+        /* Navigasi */
+        .navbar-neo {
+            background-color: var(--primary-color) !important;
+            border-bottom: 4px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1030;
+            padding: 15px 0;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .brand-logo {
+            background-color: white;
+            border: 3px solid var(--border-color);
+            border-radius: 12px;
+            padding: 5px;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.5rem;
+            box-shadow: 3px 3px 0px #000;
+        }
+
+        .brand-text h1 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin: 0;
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .brand-text p {
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        /* API Mode Badge */
+        .api-mode-badge {
+            background-color: var(--red-color);
+            color: white;
+            border: 3px solid var(--border-color);
+            padding: 5px 15px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            border-radius: 10px;
+            box-shadow: 3px 3px 0px #000;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .api-mode-badge.live {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+        }
+
+        /* Hero Banner */
+        .hero-banner {
+            background-color: var(--primary-color);
+            padding: 50px 30px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-banner h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-banner p {
+            font-size: 1.2rem;
+            font-weight: 600;
+            max-width: 700px;
+            margin-bottom: 0;
+        }
+
+        /* Statistik Cards */
+        .stat-card {
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        .stat-card:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 9px 9px 0px #000000 !important;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #111111;
+        }
+
+        .stat-guru { background-color: var(--primary-color); }
+        .stat-siswa { background-color: var(--red-color); }
+        .stat-vip { background-color: var(--red-dark); color: white !important; }
+        .stat-vip .stat-label { color: #f0f0f0 !important; }
+        .stat-total { background-color: #ffffff; }
+
+        /* Pencarian & Filter */
+        .search-input {
+            border: 4px solid var(--border-color) !important;
+            border-radius: 16px !important;
+            padding: 15px 20px !important;
+            font-size: 1.1rem;
+            font-weight: 600;
+            box-shadow: var(--btn-shadow);
+            outline: none !important;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        .search-input:focus {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px #000 !important;
+            background-color: #fff;
+        }
+
+        .filter-btn {
+            border: 3px solid var(--border-color) !important;
+            border-radius: 12px !important;
+            padding: 10px 24px !important;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            box-shadow: var(--btn-shadow);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            background-color: white;
+            color: var(--text-color);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px #000 !important;
+        }
+
+        .filter-btn-all.active, .filter-btn-all:hover { background-color: #ffffff !important; color: var(--text-color) !important; }
+        .filter-btn-guru.active, .filter-btn-guru:hover { background-color: var(--primary-color) !important; color: var(--text-color) !important; }
+        .filter-btn-siswa.active, .filter-btn-siswa:hover { background-color: var(--red-color) !important; color: white !important; }
+        .filter-btn-vip.active, .filter-btn-vip:hover { background-color: var(--red-dark) !important; color: white !important; }
+
+        /* Grid Galeri & Card */
+        .photo-card {
+            background-color: white;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        .photo-card:hover {
+            transform: translate(-5px, -5px);
+            box-shadow: 10px 10px 0px #000000 !important;
+        }
+
+        .photo-img-wrapper {
+            position: relative;
+            border-bottom: 4px solid var(--border-color);
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            background-color: #eaeaea;
+        }
+
+        .photo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .photo-card:hover .photo-img {
+            transform: scale(1.05);
+        }
+
+        /* Overlay Tombol Putar Video (Neo Brutalism Style) */
+        .video-play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            text-shadow: 4px 4px 0px #000;
+            opacity: 0.95;
+            transition: transform var(--transition-speed), color var(--transition-speed);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .photo-card:hover .video-play-overlay {
+            transform: translate(-50%, -50%) scale(1.15);
+            color: var(--red-color);
+        }
+
+        .photo-body {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .photo-title {
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 12px;
+            color: var(--text-color);
+            word-wrap: break-word;
+            overflow: visible;
+        }
+
+        .photo-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 5px;
+        }
+
+        .badge-neo {
+            border: 2px solid var(--border-color);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            color: var(--text-color) !important;
+        }
+
+        .badge-guru { background-color: var(--primary-color); }
+        .badge-siswa { background-color: var(--red-color); color: white !important; }
+        .badge-vip { background-color: var(--red-dark); color: white !important; }
+
+        .photo-date {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #666;
+        }
+
+        /* Skeleton Loading */
+        .skeleton-card {
+            background-color: white;
+            height: 320px;
+        }
+
+        .skeleton-img {
+            height: 60%;
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading-shimmer 1.5s infinite;
+            border-bottom: 4px solid var(--border-color);
+        }
+
+        .skeleton-text {
+            height: 20px;
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading-shimmer 1.5s infinite;
+            margin: 15px;
+            border-radius: 4px;
+            border: 2px solid var(--border-color);
+        }
+
+        .skeleton-badge {
+            width: 40%;
+            height: 25px;
+            border-radius: 20px;
+        }
+
+        @keyframes loading-shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Modal / Lightbox */
+        .modal-content-neo {
+            background-color: var(--bg-color) !important;
+            border: 4px solid var(--border-color) !important;
+            border-radius: 16px !important;
+            box-shadow: 12px 12px 0px #000000 !important;
+            overflow: hidden;
+        }
+
+        .modal-header-neo {
+            background-color: var(--primary-color);
+            border-bottom: 4px solid var(--border-color) !important;
+            padding: 15px 20px;
+        }
+
+        .modal-header-neo .modal-title {
+            font-weight: 800;
+            font-size: 1.25rem;
+        }
+
+        .modal-body-neo {
+            padding: 20px;
+        }
+
+        .lightbox-img-container {
+            border: 4px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: #000;
+            margin-bottom: 15px;
+            box-shadow: 4px 4px 0px #000;
+        }
+
+        .lightbox-img {
+            width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* Pembuat bingkai pemutar video responsif di Lightbox */
+        .lightbox-video {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border: none;
+            display: block;
+        }
+
+        .modal-btn {
+            border: 3px solid var(--border-color) !important;
+            border-radius: 12px !important;
+            padding: 8px 20px !important;
+            font-weight: 700;
+            box-shadow: var(--btn-shadow);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        .modal-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px #000 !important;
+        }
+
+        /* Alerts & States */
+        .alert-neo {
+            background-color: var(--red-color);
+            border: 4px solid var(--border-color) !important;
+            border-radius: 16px !important;
+            box-shadow: var(--card-shadow);
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        /* Scroll To Top */
+        .btn-scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--red-color);
+            color: white !important;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px !important;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            z-index: 99;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        .btn-scroll-top:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 5px 5px 0px #000 !important;
+        }
+
+        /* Footer */
+        .footer-neo {
+            background-color: var(--text-color);
+            color: white;
+            border-top: 4px solid var(--border-color);
+            padding: 30px 0;
+            margin-top: 60px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .footer-logo {
+            background-color: white;
+            color: black;
+            border: 2px solid white;
+            padding: 5px 10px;
+            font-weight: 800;
+            display: inline-block;
+            margin-bottom: 10px;
+            box-shadow: 3px 3px 0px var(--primary-color);
+        }
+
+        /* Responsivitas Kustom untuk Grid Galeri */
+        @media (max-width: 576px) {
+            .g-cols-custom {
+                --bs-gutter-x: 12px;
+                --bs-gutter-y: 12px;
+            }
+            .hero-banner h2 {
+                font-size: 2rem;
+            }
+            .brand-text h1 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-neo">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="brand-container">
+                <div class="brand-logo">RH</div>
+                <div class="brand-text">
+                    <h1>Galeri Haflatul Imtihan</h1>
+                    <p>Rudlatul Hasan Hasan</p>
+                </div>
+            </div>
+            <!-- API Status Indicator -->
+            <div id="apiModeIndicator" class="api-mode-badge">
+                <i class="bi bi-info-circle-fill"></i> <span id="apiModeText">Mencari API...</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENT -->
+    <div class="container mt-4">
+        
+        <!-- HERO BANNER -->
+        <div class="hero-banner neo-border neo-shadow">
+            <h2>Selamat Datang Di Dokumentasi Haflatul Imtihan </h2>
+            <p>Bismillahirrahmanirrahim. Semoga setiap momen yang terdokumentasi dalam Haflatul Imtihan SMK An-Nur Karomatul Hasan menjadi kenangan indah, penuh keberkahan, serta menginspirasi generasi yang akan datang.</p>
+        </div>
+
+        <!-- STATISTIK CARDS -->
+        <div class="row g-3 mb-5">
+            <div class="col-6 col-md-3">
+                <div class="stat-card neo-border neo-shadow stat-total">
+                    <div class="stat-value" id="stat-all-val">-</div>
+                    <div class="stat-label">Total Media</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-card neo-border neo-shadow stat-guru">
+                    <div class="stat-value" id="stat-guru-val">-</div>
+                    <div class="stat-label">Guru</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-card neo-border neo-shadow stat-siswa">
+                    <div class="stat-value" id="stat-siswa-val">-</div>
+                    <div class="stat-label">Siswa</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-card neo-border neo-shadow stat-vip">
+                    <div class="stat-value" id="stat-vip-val">-</div>
+                    <div class="stat-label">VIP</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEARCH & FILTER UTAMA -->
+        <div class="row g-3 mb-4 align-items-center">
+            <!-- Search bar -->
+            <div class="col-12 col-lg-5">
+                <div class="position-relative">
+                    <input type="text" id="searchInput" class="form-control search-input w-100" placeholder=" Cari nama foto atau video...">
+                </div>
+            </div>
+            <!-- Filter buttons -->
+            <div class="col-12 col-lg-7">
+                <div class="d-flex flex-wrap gap-2 justify-content-lg-end" id="filterContainer">
+                    <button class="btn filter-btn filter-btn-all active" data-category="semua">Semua</button>
+                    <button class="btn filter-btn filter-btn-guru" data-category="guru"> Guru</button>
+                    <button class="btn filter-btn filter-btn-siswa" data-category="siswa"> Siswa</button>
+                    <button class="btn filter-btn filter-btn-vip" data-category="vip"> VIP</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- STATUS VIEW (NO RESULTS / LOADING / ERROR) -->
+        <div id="statusAlertContainer" class="d-none my-5">
+            <div id="statusAlert" class="alert alert-neo p-4 text-center neo-border">
+                <div id="statusAlertIcon" class="fs-1 mb-2"><i class="bi bi-exclamation-triangle"></i></div>
+                <h4 id="statusAlertTitle" class="fw-bold">Terjadi Kesalahan</h4>
+                <p id="statusAlertMessage" class="mb-0">Gagal terhubung dengan server.</p>
+                <button id="retryBtn" class="btn modal-btn btn-light mt-3">Coba Lagi</button>
+            </div>
+        </div>
+
+        <!-- GRID GALERI -->
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3 g-cols-custom" id="galleryGrid">
+            <!-- Skeleton items are rendered dynamically inside Script -->
+        </div>
+
+        <!-- LOADING SPINNER FOR INFINITE SCROLL -->
+        <div id="infiniteLoadSpinner" class="text-center d-none my-4">
+            <div class="spinner-border text-dark" role="status" style="border-width: 4px;">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="mt-2 fw-bold">Memuat lebih banyak momen...</p>
+        </div>
+
+    </div>
+
+    <!-- LIGHTBOX / DETAIL MODAL -->
+    <div class="modal fade" id="lightboxModal" tabindex="-1" aria-labelledby="lightboxModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content modal-content-neo">
+                <div class="modal-header modal-header-neo">
+                    <h5 class="modal-title" id="lightboxTitle">Nama Media</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="border: 2px solid #000; opacity: 1; background-color: #fff;"></button>
+                </div>
+                <div class="modal-body modal-body-neo">
+                    <div class="lightbox-img-container">
+                        <!-- Mengakomodasi Image maupun Video Player secara Dinamis -->
+                        <img src="" alt="Detail Foto" class="lightbox-img" id="lightboxImg">
+                        <iframe src="" class="lightbox-video d-none" id="lightboxVideo" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+                        <div>
+                            <span id="lightboxBadge" class="badge badge-neo me-2">Kategori</span>
+                            <span id="lightboxDate" class="photo-date"><i class="bi bi-calendar-event me-1"></i>Tanggal upload</span>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <button id="downloadBtn" class="btn modal-btn btn-warning"><i class="bi bi-download me-2"></i>Download</button>
+                            <button class="btn modal-btn btn-dark" data-bs-dismiss="modal">Tutup</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCROLL TO TOP BUTTON -->
+    <button class="btn btn-scroll-top neo-border" id="scrollTopBtn" title="Kembali ke Atas">
+        <i class="bi bi-arrow-up-circle-fill"></i>
+    </button>
+
+    <!-- FOOTER -->
+    <footer class="footer-neo">
+        <div class="container">
+            <div class="footer-logo">PP. RH</div>
+            <p class="mb-0">Copyright © 2026 Pondok Pesantren Rudlatul Hasan HASAN</p>
+            <p class="small text-muted mt-2">Sistem Integrasi Google Drive Cloud API</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 Bundle JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- CORE JAVASCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // ==========================================
+            // CONFIG & API SETTINGS
+            // ==========================================
+            // PASTE KAN URL GOOGLE APPS SCRIPT WEB APP YANG SUDAH ANDA DEPLOY DI SINI:
+            const GOOGLE_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbwqkQEeiKTUCKKspdvhdBHKgEu4-z1MNNOu3-f1IgA0ft7O_4zu0QejLcrr54Njkt0/exec"; 
+
+            // ==========================================
+            // STATE MANAGEMENT
+            // ==========================================
+            let allPhotos = [];         
+            let filteredPhotos = [];    
+            
+            let currentCategory = 'semua';
+            let searchQuery = '';
+            
+            const ITEMS_PER_PAGE = 8;   
+            let currentPage = 1;
+            let isLoadingMore = false;
+
+            // Instansiasi Modal Bootstrap
+            const lightboxModal = new bootstrap.Modal(document.getElementById('lightboxModal'));
+
+            // DOM Elements
+            const galleryGrid = document.getElementById('galleryGrid');
+            const searchInput = document.getElementById('searchInput');
+            const filterContainer = document.getElementById('filterContainer');
+            const infiniteLoadSpinner = document.getElementById('infiniteLoadSpinner');
+            const scrollTopBtn = document.getElementById('scrollTopBtn');
+            const statusAlertContainer = document.getElementById('statusAlertContainer');
+            const statusAlert = document.getElementById('statusAlert');
+            const statusAlertTitle = document.getElementById('statusAlertTitle');
+            const statusAlertMessage = document.getElementById('statusAlertMessage');
+            const statusAlertIcon = document.getElementById('statusAlertIcon');
+            const retryBtn = document.getElementById('retryBtn');
+            const apiModeIndicator = document.getElementById('apiModeIndicator');
+            const apiModeText = document.getElementById('apiModeText');
+
+            // Statistik Element
+            const statAllVal = document.getElementById('stat-all-val');
+            const statGuruVal = document.getElementById('stat-guru-val');
+            const statSiswaVal = document.getElementById('stat-siswa-val');
+            const statVipVal = document.getElementById('stat-vip-val');
+
+            // Lightbox Elements
+            const lightboxImg = document.getElementById('lightboxImg');
+            const lightboxVideo = document.getElementById('lightboxVideo');
+            const lightboxTitle = document.getElementById('lightboxTitle');
+            const lightboxBadge = document.getElementById('lightboxBadge');
+            const lightboxDate = document.getElementById('lightboxDate');
+            const downloadBtn = document.getElementById('downloadBtn');
+
+            // ==========================================
+            // FALLBACK / MOCK DATA (Mendukung Foto & Video)
+            // ==========================================
+            const MOCK_DATA = [
+                { id: "demo-1", nama: "Dokumentasi Pembukaan Haflatul Imtihan.mp4", kategori: "Guru", foto: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=800", tipe: "video", tanggal: "2026-06-15T08:00:00.000Z" },
+                { id: "demo-2", nama: "Wisudawan Terbaik Kelas XII TKJ.jpg", kategori: "Siswa", foto: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=800", tipe: "image", tanggal: "2026-06-15T09:30:00.000Z" },
+                { id: "demo-3", nama: "Penyambutan KH. Ahmad Khaliq (VIP).jpg", kategori: "VIP", foto: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=800", tipe: "image", tanggal: "2026-06-14T14:15:00.000Z" },
+                { id: "demo-4", nama: "Sambutan Kepala Sekolah SMK.jpg", kategori: "Guru", foto: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800", tipe: "image", tanggal: "2026-06-15T08:30:00.000Z" },
+                { id: "demo-5", nama: "Grup Sholawat Siswi Al-Banjari.mp4", kategori: "Siswa", foto: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&q=80&w=800", tipe: "video", tanggal: "2026-06-15T11:00:00.000Z" },
+                { id: "demo-6", nama: "Kepala Dinas Pendidikan Provinsi Jatim.jpg", kategori: "VIP", foto: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&q=80&w=800", tipe: "image", tanggal: "2026-06-14T15:00:00.000Z" },
+                { id: "demo-7", nama: "Pentas Seni Teater Tradisional Santri.mp4", kategori: "Siswa", foto: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800", tipe: "video", tanggal: "2026-06-15T10:45:00.000Z" },
+                { id: "demo-8", nama: "Briefing Panitia Haflatul Imtihan.jpg", kategori: "Guru", foto: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800", tipe: "image", tanggal: "2026-06-10T16:00:00.000Z" }
+            ];
+
+            // ==========================================
+            // FLOW PENGAMBILAN DATA (FETCH API)
+            // ==========================================
+            async function fetchGalleryData() {
+                showSkeletonLoading();
+                hideStatusAlert();
+
+                if (GOOGLE_SCRIPT_API_URL.includes("YOUR_DEPLOYED_ID_HERE")) {
+                    setApiStatus("DEMO", false);
+                    setTimeout(() => {
+                        handleDataSuccess(MOCK_DATA);
+                    }, 1000); 
+                    return;
+                }
+
+                const maxRetries = 3;
+                let attempt = 0;
+                let success = false;
+
+                while (attempt < maxRetries && !success) {
+                    try {
+                        const response = await fetch(GOOGLE_SCRIPT_API_URL);
+                        if (!response.ok) throw new Error('Respon dari Google Web App tidak OK');
+                        
+                        const data = await response.json();
+                        if (data && Array.isArray(data)) {
+                            setApiStatus("LIVE", true);
+                            handleDataSuccess(data);
+                            success = true;
+                        } else {
+                            throw new Error('Data Google Apps Script tidak berbentuk Array JSON');
+                        }
+                    } catch (error) {
+                        attempt++;
+                        console.error(`Percobaan ke-${attempt} gagal mengambil data API:`, error);
+                        if (attempt >= maxRetries) {
+                            setApiStatus("API ERROR", false);
+                            showErrorState(
+                                "Koneksi Google API Terhambat", 
+                                "Gagal mengambil data langsung dari Google Drive. Pastikan Web App Anda telah dideploy secara publik (Anyone) dan masukkan URL-nya ke dalam kode."
+                            );
+                        }
+                        await new Promise(resolve => setTimeout(resolve, attempt * 1000));
+                    }
+                }
+            }
+
+            function setApiStatus(mode, isLive) {
+                if (isLive) {
+                    apiModeIndicator.className = "api-mode-badge live";
+                    apiModeText.innerHTML = `<i class="bi bi-cloud-check-fill"></i> Google Drive Cloud Connected`;
+                } else if (mode === "DEMO") {
+                    apiModeIndicator.className = "api-mode-badge";
+                    apiModeText.innerHTML = `<i class="bi bi-info-circle-fill"></i> Mode Demo (Simulasi)`;
+                } else {
+                    apiModeIndicator.className = "api-mode-badge";
+                    apiModeIndicator.style.backgroundColor = "var(--red-color)";
+                    apiModeIndicator.style.color = "white";
+                    apiModeText.innerHTML = `<i class="bi bi-cloud-slash-fill"></i> Gagal Memuat Google API`;
+                }
+            }
+
+            function handleDataSuccess(data) {
+                allPhotos = data.map(photo => {
+                    const cleanName = photo.nama ? photo.nama.replace(/\.[^/.]+$/, "") : "Momen Tanpa Nama";
+                    
+                    // Deteksi otomatis tipe media berdasarkan extension atau key 'tipe' dari server
+                    const isVideoFile = photo.tipe === "video" || (photo.nama && photo.nama.toLowerCase().match(/\.(mp4|webm|mov|mkv|avi|3gp)$/));
+
+                    return {
+                        id: photo.id || Math.random().toString(36).substr(2, 9),
+                        nama: cleanName,
+                        kategori: capitalizeFirstLetter(photo.kategori || "Siswa"),
+                        foto: sanitizeGoogleDriveUrl(photo.foto),
+                        originalUrl: photo.foto, // Simpan URL asli untuk memproses ID video
+                        tipe: isVideoFile ? "video" : "image",
+                        tanggal: photo.tanggal || null
+                    };
+                });
+
+                calculateStatistics();
+                applyFilterAndSearch(true); 
+            }
+
+            // Memperbaiki URL foto/video ke server direct-view biner Google
+            function sanitizeGoogleDriveUrl(url) {
+                if (!url) return "";
+                const fileId = getGoogleDriveId(url);
+                if (fileId) {
+                    // Google Drive thumbnail API mendukung penayangan cover art video secara native!
+                    return `https://drive.google.com/thumbnail?id=${fileId}&sz=w1280`;
+                }
+                return url; 
+            }
+
+            function getGoogleDriveId(url) {
+                if (!url) return "";
+                let fileId = "";
+                if (url.includes("drive.google.com/file/d/")) {
+                    fileId = url.split("/file/d/")[1].split("/")[0];
+                } else if (url.includes("id=")) {
+                    fileId = url.split("id=")[1].split("&")[0];
+                }
+                return fileId;
+            }
+
+            function capitalizeFirstLetter(string) {
+                return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+            }
+
+            // ==========================================
+            // STATISTIK CALCULATOR
+            // ==========================================
+            function calculateStatistics() {
+                const total = allPhotos.length;
+                const totalGuru = allPhotos.filter(p => p.kategori.toLowerCase() === 'guru').length;
+                const totalSiswa = allPhotos.filter(p => p.kategori.toLowerCase() === 'siswa').length;
+                const totalVip = allPhotos.filter(p => p.kategori.toLowerCase() === 'vip').length;
+
+                animateValue(statAllVal, 0, total, 800);
+                animateValue(statGuruVal, 0, totalGuru, 800);
+                animateValue(statSiswaVal, 0, totalSiswa, 800);
+                animateValue(statVipVal, 0, totalVip, 800);
+            }
+
+            function animateValue(obj, start, end, duration) {
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    obj.innerHTML = Math.floor(progress * (end - start) + start);
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    } else {
+                        obj.innerHTML = end;
+                    }
+                };
+                window.requestAnimationFrame(step);
+            }
+
+            // ==========================================
+            // FILTER & SEARCH REALTIME
+            // ==========================================
+            function applyFilterAndSearch(resetPage = false) {
+                if (resetPage) {
+                    currentPage = 1;
+                    galleryGrid.innerHTML = '';
+                }
+
+                filteredPhotos = allPhotos.filter(photo => {
+                    const matchCategory = (currentCategory === 'semua' || photo.kategori.toLowerCase() === currentCategory);
+                    const matchSearch = photo.nama.toLowerCase().includes(searchQuery.toLowerCase());
+                    return matchCategory && matchSearch;
+                });
+
+                if (filteredPhotos.length === 0) {
+                    showEmptyState();
+                } else {
+                    hideStatusAlert();
+                    renderGalleryChunk();
+                }
+            }
+
+            // Tampilkan foto/video per halaman (Infinite Scroll)
+            function renderGalleryChunk() {
+                const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+                const endIndex = startIndex + ITEMS_PER_PAGE;
+                const nextChunk = filteredPhotos.slice(startIndex, endIndex);
+
+                if (nextChunk.length === 0 && currentPage === 1) {
+                    showEmptyState();
+                    return;
+                }
+
+                nextChunk.forEach(photo => {
+                    const isVideo = photo.tipe === "video";
+                    
+                    // Render overlay play button jika tipenya adalah Video
+                    const videoOverlay = isVideo ? `<div class="video-play-overlay"><i class="bi bi-play-circle-fill"></i></div>` : '';
+
+                    const cardHtml = `
+                        <div class="col card-item" data-id="${photo.id}">
+                            <div class="card photo-card neo-border neo-shadow">
+                                <div class="photo-img-wrapper">
+                                    <img src="${photo.foto}" 
+                                         alt="${photo.nama}" 
+                                         class="photo-img"
+                                         loading="lazy"
+                                         onerror="this.src='https://images.unsplash.com/photo-1594322436404-5a0526db4d13?q=80&w=800';">
+                                    ${videoOverlay}
+                                </div>
+                                <div class="photo-body">
+                                    <h3 class="photo-title" title="${photo.nama}">${photo.nama}</h3>
+                                    <div class="photo-meta">
+                                        <span class="badge-neo badge-${photo.kategori.toLowerCase()}">${photo.kategori}</span>
+                                        ${photo.tanggal ? `<span class="photo-date"><i class="bi bi-calendar3 me-1"></i>${formatIndonesianDate(photo.tanggal)}</span>` : ''}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    galleryGrid.insertAdjacentHTML('beforeend', cardHtml);
+                });
+
+                initLightboxListeners();
+            }
+
+            function formatIndonesianDate(dateString) {
+                if (!dateString) return "";
+                try {
+                    const options = { year: 'numeric', month: 'short', day: 'numeric' };
+                    const date = new Date(dateString);
+                    return date.toLocaleDateString('id-ID', options);
+                } catch(e) {
+                    return "";
+                }
+            }
+
+            // ==========================================
+            // INFINITE SCROLL
+            // ==========================================
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollTopBtn.style.display = 'flex';
+                } else {
+                    scrollTopBtn.style.display = 'none';
+                }
+
+                if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 100) {
+                    loadMorePhotos();
+                }
+            });
+
+            function loadMorePhotos() {
+                const totalLoaded = currentPage * ITEMS_PER_PAGE;
+                if (totalLoaded < filteredPhotos.length && !isLoadingMore) {
+                    isLoadingMore = true;
+                    infiniteLoadSpinner.classList.remove('d-none');
+                    
+                    setTimeout(() => {
+                        currentPage++;
+                        renderGalleryChunk();
+                        isLoadingMore = false;
+                        infiniteLoadSpinner.classList.add('d-none');
+                    }, 500);
+                }
+            }
+
+            scrollTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // ==========================================
+            // LIGHTBOX (MODAL DETAIL & DOWNLOAD)
+            // ==========================================
+            function initLightboxListeners() {
+                const cards = document.querySelectorAll('.card-item');
+                cards.forEach(cardContainer => {
+                    const newCard = cardContainer.cloneNode(true);
+                    cardContainer.parentNode.replaceChild(newCard, cardContainer);
+
+                    newCard.addEventListener('click', () => {
+                        const photoId = newCard.getAttribute('data-id');
+                        const selectedPhoto = allPhotos.find(p => p.id === photoId);
+                        if (selectedPhoto) {
+                            openLightbox(selectedPhoto);
+                        }
+                    });
+                });
+            }
+
+            function openLightbox(photo) {
+                lightboxTitle.textContent = photo.nama;
+                
+                lightboxBadge.className = 'badge-neo badge-' + photo.kategori.toLowerCase();
+                lightboxBadge.textContent = photo.kategori;
+                lightboxDate.innerHTML = photo.tanggal ? `<i class="bi bi-calendar3 me-1"></i>${formatIndonesianDate(photo.tanggal)}` : '<i class="bi bi-calendar3 me-1"></i>Tanggal tidak tersedia';
+                
+                // Cek tipe konten untuk memilah pemutar modal
+                if (photo.tipe === "video") {
+                    // Sembunyikan element gambar, aktifkan pemutar video iframe
+                    lightboxImg.classList.add('d-none');
+                    lightboxVideo.classList.remove('d-none');
+                    
+                    const fileId = getGoogleDriveId(photo.originalUrl);
+                    if (fileId) {
+                        // Menggunakan pemutar preview Google Drive (transcoding handal, hemat kuota & no-CORS)
+                        lightboxVideo.src = `https://drive.google.com/file/d/${fileId}/preview`;
+                    } else {
+                        // Fallback untuk mockup video non-Drive
+                        lightboxVideo.src = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"; 
+                    }
+                } else {
+                    // Sembunyikan pemutar video, aktifkan gambar biasa
+                    lightboxVideo.classList.add('d-none');
+                    lightboxVideo.src = ""; // Bersihkan iframe src agar video berhenti berputar
+                    lightboxImg.classList.remove('d-none');
+                    lightboxImg.src = photo.foto;
+                }
+
+                // Konfigurasi aksi unduh
+                downloadBtn.onclick = () => downloadImage(photo.originalUrl || photo.foto, photo.nama, photo.tipe);
+                lightboxModal.show();
+            }
+
+            // Hentikan pemutaran audio/video di background saat modal ditutup
+            const modalEl = document.getElementById('lightboxModal');
+            modalEl.addEventListener('hidden.bs.modal', () => {
+                lightboxVideo.src = "";
+            });
+
+            async function downloadImage(imageUrl, filename, tipe) {
+                const fileId = getGoogleDriveId(imageUrl);
+
+                if (fileId) {
+                    // Trigger download otomatis langsung dari browser menggunakan endpoint download Google Drive
+                    const downloadUrl = `https://docs.google.com/uc?export=download&id=${fileId}`;
+                    const link = document.createElement('a');
+                    link.href = downloadUrl;
+                    link.target = "_blank"; 
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    return;
+                }
+
+                // Fallback untuk media non-Google Drive
+                try {
+                    downloadBtn.disabled = true;
+                    downloadBtn.innerHTML = `<span class="spinner-border spinner-border-sm me-2"></span>Mengunduh...`;
+
+                    const response = await fetch(imageUrl);
+                    const blob = await response.blob();
+                    const link = document.createElement('a');
+                    link.href = window.URL.createObjectURL(blob);
+                    
+                    const ext = tipe === "video" ? ".mp4" : ".jpg";
+                    link.download = filename.replace(/[^a-z0-9]/gi, '_').toLowerCase() + ext;
+                    
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                } catch (e) {
+                    window.open(imageUrl, '_blank');
+                } finally {
+                    downloadBtn.disabled = false;
+                    downloadBtn.innerHTML = `<i class="bi bi-download me-2"></i>Download`;
+                }
+            }
+
+            // ==========================================
+            // INPUT & FILTER EVENT HANDLERS
+            // ==========================================
+            searchInput.addEventListener('input', (e) => {
+                searchQuery = e.target.value;
+                applyFilterAndSearch(true);
+            });
+
+            filterContainer.addEventListener('click', (e) => {
+                const targetBtn = e.target.closest('.filter-btn');
+                if (!targetBtn) return;
+
+                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                targetBtn.classList.add('active');
+
+                currentCategory = targetBtn.getAttribute('data-category');
+                applyFilterAndSearch(true);
+            });
+
+            retryBtn.addEventListener('click', () => {
+                hideStatusAlert();
+                setApiStatus("DEMO", false);
+                showSkeletonLoading();
+                setTimeout(() => {
+                    handleDataSuccess(MOCK_DATA);
+                }, 800);
+            });
+
+            // ==========================================
+            // UI STATE HANDLERS
+            // ==========================================
+            function showSkeletonLoading() {
+                galleryGrid.innerHTML = '';
+                for (let i = 0; i < 8; i++) {
+                    const skeleton = `
+                        <div class="col skeleton-wrapper">
+                            <div class="card skeleton-card neo-border neo-shadow">
+                                <div class="skeleton-img"></div>
+                                <div class="skeleton-text"></div>
+                                <div class="skeleton-text skeleton-badge"></div>
+                            </div>
+                        </div>
+                    `;
+                    galleryGrid.insertAdjacentHTML('beforeend', skeleton);
+                }
+            }
+
+            function showEmptyState() {
+                galleryGrid.innerHTML = '';
+                statusAlertContainer.classList.remove('d-none');
+                
+                statusAlert.className = "alert alert-neo p-5 text-center neo-border";
+                statusAlert.style.backgroundColor = "var(--primary-color)";
+                statusAlertIcon.innerHTML = '<i class="bi bi-folder2-open"></i>';
+                statusAlertTitle.textContent = "Momen Tidak Ditemukan";
+                statusAlertMessage.textContent = "Tidak ada dokumentasi foto atau video yang sesuai dengan pencarian atau kategori ini di dalam sistem.";
+                retryBtn.style.display = 'none'; 
+            }
+
+            function showErrorState(title, message) {
+                galleryGrid.innerHTML = '';
+                statusAlertContainer.classList.remove('d-none');
+                
+                statusAlert.className = "alert alert-neo p-5 text-center neo-border";
+                statusAlert.style.backgroundColor = "var(--red-color)";
+                statusAlertIcon.innerHTML = '<i class="bi bi-cloud-slash"></i>';
+                statusAlertTitle.textContent = title;
+                statusAlertMessage.textContent = message;
+                retryBtn.style.display = 'inline-block'; 
+                retryBtn.textContent = 'Gunakan Mode Demo (Simulasi)';
+            }
+
+            function hideStatusAlert() {
+                statusAlertContainer.classList.add('d-none');
+            }
+
+            // Jalankan inisialisasi awal
+            fetchGalleryData();
+        });
+    </script>
+</body>
+</html>
